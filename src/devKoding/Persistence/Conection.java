@@ -9,7 +9,7 @@ import java.sql.SQLException;
  */
 public class Conection {
 
-    String url= ".\\Resources\\Db\\dictionary.db";
+    String url= ".\\Resources\\DB\\DictionaryWG.db";
 
     Connection connect;
 
