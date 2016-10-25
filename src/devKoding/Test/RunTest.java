@@ -19,12 +19,18 @@ public class RunTest {
 
             ArrayList<String> arrayWords= h.getWords();
 
-            System.out.println("RUNTEST:" + arrayWords.size());
+            //System.out.println("RUNTEST:" + arrayWords.size());
+
+            System.out.println(h.findWord("perro"));
+            System.out.println(h.findWord("perroxsxsxsx"));
+            System.out.println(h.findWord("negro"));
+            System.out.println(h.findWord("hoja"));
+            System.out.println(h.findWord("perró"));
 
 
-            for (String word: arrayWords) {
+            /*for (String word: arrayWords) {
                  System.out.println("Palabra: \t"+word);
-            }
+            }*/
 
 
         } catch (SQLException e) {

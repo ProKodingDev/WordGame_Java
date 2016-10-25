@@ -40,6 +40,13 @@ public class HaldingWords {
 
     }
 
+    public boolean findWord(String wordSearch){
+        for (String word:words)
+            if(wordSearch.equals(word))
+                return true;
+       return false;
+    }
+
     public ArrayList<String> getWords() {
         return words;
     }
