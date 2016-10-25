@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="sqlite-jdbc-3.7.2">
+    <archive path="/Users/cristhian/Documents/WordGame_Java/Resources/ExternalLibs/sqlite-jdbc-3.7.2.jar" />
+  </library>
+</eclipse-userlibraries>
+
