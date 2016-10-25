@@ -1,6 +1,5 @@
 package devKoding.Test;
 
-import devKoding.Persistence.Conection;
 import devKoding.logic.HaldingWords;
 
 import java.sql.SQLException;
@@ -21,11 +20,25 @@ public class RunTest {
 
             //System.out.println("RUNTEST:" + arrayWords.size());
 
-            System.out.println(h.findWord("perro"));
-            System.out.println(h.findWord("perroxsxsxsx"));
-            System.out.println(h.findWord("negro"));
-            System.out.println(h.findWord("hoja"));
-            System.out.println(h.findWord("perró"));
+            System.out.println(h.findWord("arre"));
+            System.out.println(h.findWord("era"));
+
+
+
+            String randomWord = h.randomWord(4);
+            System.out.println("Random WORD: \t" + randomWord);
+
+            //Array con las palabras posibles a partir de una palabra aleatoria
+            ArrayList<String> possiblesWords = h.permutationWord(randomWord);
+
+            /*System.out.println("Palabras Posibles");
+            for (String words:possiblesWords) {
+                System.out.print("\t"+words);
+            }*/
+
+            ArrayList<String> trueWords = h.trueWords(possiblesWords);
+
+
 
 
             /*for (String word: arrayWords) {
