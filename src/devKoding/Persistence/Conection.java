@@ -9,11 +9,11 @@ import java.sql.SQLException;
  */
 public class Conection {
 
-    String url= ".\\Resources\\DB\\DictionaryWG.db";
+    String url= "./Resources/DB/DictionaryWG.db";
 
     Connection connect;
 
-    public void Connect() throws ClassNotFoundException {
+    public Connection Connect() throws ClassNotFoundException {
 
         try {
             Class.forName("org.sqlite.JDBC");
@@ -23,7 +23,7 @@ public class Conection {
         } catch (SQLException e) {
             System.out.println("No se pudo conectar a la BD" + e.getMessage());
         }
-
+        return connect;
 
     }
 }

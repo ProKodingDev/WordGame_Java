@@ -1,6 +1,9 @@
 package devKoding.Test;
 
 import devKoding.Persistence.Conection;
+import devKoding.logic.HaldingWords;
+
+import java.sql.SQLException;
 
 /**
  * Created by cristhian on 24/10/16.
@@ -8,13 +11,17 @@ import devKoding.Persistence.Conection;
 public class RunTest {
 
     public static void main(String[] args) {
-        Conection con = new Conection();
+
+        HaldingWords h = new HaldingWords();
 
         try {
-            con.Connect();
+            h.loadWords();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
+
     }
 
 }
