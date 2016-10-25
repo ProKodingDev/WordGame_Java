@@ -17,9 +17,10 @@ public class HaldingWords {
     private Conection conection;
 
 
-    public HaldingWords() {
+    public HaldingWords() throws SQLException, ClassNotFoundException {
         words = new ArrayList<>();
         conection = new Conection();
+        loadWords();
     }
 
 
@@ -31,11 +32,19 @@ public class HaldingWords {
             ResultSet rs = stat.executeQuery(sql)){
 
             while (rs.next()){
-                System.out.println(rs.getString("sin_acentos"));
+                words.add(rs.getString("sin_acentos"));
             }
         }catch (SQLException e){
             System.out.printf("ERROR CONSULTA" + e.getMessage());
         }
 
+    }
+
+    public ArrayList<String> getWords() {
+        return words;
+    }
+
+    public void setWords(ArrayList<String> words) {
+        this.words = words;
     }
 }
