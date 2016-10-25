@@ -34,7 +34,7 @@ public class HaldingWords {
                 System.out.println(rs.getString("sin_acentos"));
             }
         }catch (SQLException e){
-            System.out.printf("ERROR CONSULTA" + e.getMessage());
+            System.out.printf("ERROR CONSULTA . " + e.getMessage());
         }
 
     }
