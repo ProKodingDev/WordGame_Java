@@ -179,7 +179,7 @@ public class HaldingWords {
             cadena = cadena + "\nUNION " + cadenaUno(letras.get(1));
             cadena = cadena + "\nUNION " + cadenaUno(letras.get(2));
             cadena = cadena + "\nUNION " + cadenaUno(letras.get(3));
-            cadena = cadena + "\nUNION " + cadenaUno(letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(4));
         }
 
         return cadena;
