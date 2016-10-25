@@ -40,8 +40,8 @@ public class HaldingWords {
         }catch (SQLException e){
             System.out.printf("ERROR CONSULTA" + e.getMessage());
         }
-
     }
+
 
     public boolean findWord(String wordSearch){
         for (String word:words)
@@ -99,6 +99,110 @@ public class HaldingWords {
         }
         System.out.println(possiblesWords.size());
         return trueWords;
+    }
+
+    public String listTrueWords(String palabra){
+        ArrayList<String> letras = new ArrayList<>();
+        String cadena = "";
+
+        for (int i = 0; i < palabra.length(); i++){
+            char letra = palabra.charAt(i);
+            letras.add(String.valueOf(letra));
+        }
+        if (letras.size() == 1){
+            cadena = cadena + cadenaUno(letras.get(0));
+        }else if (letras.size() == 2){
+            cadena = cadena + cadenaDos(letras.get(0),letras.get(1));
+            //una letra
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(0));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(1));
+        }else if (letras.size() == 3){
+            cadena = cadena + cadenaTres(letras.get(0),letras.get(1),letras.get(2));
+            //Dos letras
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(1));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(1),letras.get(2));
+            //una letra
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(0));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(1));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(2));
+        }else if (letras.size() == 4){
+            cadena = cadena + cadenaCuatro(letras.get(0),letras.get(1),letras.get(2),letras.get(3));
+            //Tres letras
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(1),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(1),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(2),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(1),letras.get(2),letras.get(3));
+            //Dos letras
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(1));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(1),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(1),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(2),letras.get(3));
+            //una letra
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(0));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(1));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(3));
+        }else if (letras.size() == 5){
+            cadena = cadena + cadenaCinco(letras.get(0),letras.get(1),letras.get(2),letras.get(3),letras.get(4));
+            //Cuatro letras
+            cadena = cadena + "\nUNION " + cadenaCuatro(letras.get(0),letras.get(1),letras.get(2),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaCuatro(letras.get(0),letras.get(1),letras.get(2),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaCuatro(letras.get(0),letras.get(1),letras.get(3),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaCuatro(letras.get(0),letras.get(2),letras.get(3),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaCuatro(letras.get(1),letras.get(2),letras.get(3),letras.get(4));
+
+            //Tres letras
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(1),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(1),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(1),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(2),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(0),letras.get(2),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(1),letras.get(2),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(1),letras.get(2),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaTres(letras.get(1),letras.get(3),letras.get(4));
+            //Dos letras
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(1));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(0),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(1),letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(1),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(1),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(2),letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(2),letras.get(4));
+            cadena = cadena + "\nUNION " + cadenaDos(letras.get(3),letras.get(4));
+            //una letra
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(0));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(1));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(2));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(3));
+            cadena = cadena + "\nUNION " + cadenaUno(letras.get(3));
+        }
+
+        return cadena;
+    }
+
+    public String cadenaCinco(String uno, String dos, String tres,String cuatro, String cinco){
+        return "SELECT sin_acentos FROM palabras WHERE sin_acentos like \"%"+uno+"%\" AND sin_acentos like \"%"+dos+"%\" AND sin_acentos like \"%"+tres+"%\" AND sin_acentos like \"%"+cuatro+"%\" AND sin_acentos like \"%" + cinco + "%\" AND LENGTH(sin_acentos) <= 5";
+    }
+
+    public String cadenaCuatro(String uno, String dos, String tres,String cuatro){
+        return "SELECT sin_acentos FROM palabras WHERE sin_acentos like \"%"+uno+"%\" AND sin_acentos like \"%"+dos+"%\" AND sin_acentos like \"%"+tres+"%\" AND sin_acentos like \"%"+cuatro+"%\" AND LENGTH(sin_acentos) <= 4";
+    }
+
+    public String cadenaTres(String uno, String dos, String tres){
+        return "SELECT sin_acentos FROM palabras WHERE sin_acentos like \"%"+uno+"%\" AND sin_acentos like \"%"+dos+"%\" AND sin_acentos like \"%"+tres+"%\" AND LENGTH(sin_acentos) <= 3";
+    }
+
+    public String cadenaDos(String uno, String dos){
+        return "SELECT sin_acentos FROM palabras WHERE sin_acentos like \"%"+uno+"%\" AND sin_acentos like \"%"+dos+"%\" AND LENGTH(sin_acentos) <= 2";
+    }
+
+    public String cadenaUno(String uno){
+        return "SELECT sin_acentos FROM palabras WHERE sin_acentos like \'%"+uno+"%\' AND LENGTH(sin_acentos) <= 1";
     }
 
     public ArrayList<String> getWords() {

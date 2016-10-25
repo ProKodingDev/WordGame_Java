@@ -16,17 +16,16 @@ public class RunTest {
         try {
             h = new HaldingWords();
 
-            ArrayList<String> arrayWords= h.getWords();
+            ArrayList<String> arrayWords = h.getWords();
 
             //System.out.println("RUNTEST:" + arrayWords.size());
-
+            //System.out.println("\n");
             System.out.println(h.findWord("arre"));
             System.out.println(h.findWord("era"));
 
-
-
-            String randomWord = h.randomWord(4);
+            String randomWord = h.randomWord(5);
             System.out.println("Random WORD: \t" + randomWord);
+            System.out.println(h.listTrueWords(randomWord));
 
             //Array con las palabras posibles a partir de una palabra aleatoria
             ArrayList<String> possiblesWords = h.permutationWord(randomWord);
@@ -37,23 +36,14 @@ public class RunTest {
             }*/
 
             ArrayList<String> trueWords = h.trueWords(possiblesWords);
-
-
-
-
             /*for (String word: arrayWords) {
                  System.out.println("Palabra: \t"+word);
             }*/
-
 
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
-
     }
-
 }
