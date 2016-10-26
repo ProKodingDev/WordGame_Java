@@ -25,7 +25,9 @@ public class RunTest {
 
             String randomWord = h.randomWord(5);
             System.out.println("Random WORD: \t" + randomWord);
-            System.out.println(h.listTrueWords(randomWord));
+            //System.out.println(h.listTrueWords(randomWord));
+            h.loadListTrueWords(randomWord);
+            System.out.println(h.getTrueWords().toString());
 
             //Array con las palabras posibles a partir de una palabra aleatoria
             ArrayList<String> possiblesWords = h.permutationWord(randomWord);

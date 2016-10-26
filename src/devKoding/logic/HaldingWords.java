@@ -17,11 +17,13 @@ import java.util.Set;
 public class HaldingWords {
 
     private ArrayList<String> words;
+    private ArrayList<String> trueWords;
     private Conection conection;
 
 
     public HaldingWords() throws SQLException, ClassNotFoundException {
         words = new ArrayList<>();
+        trueWords = new ArrayList<>();
         conection = new Conection();
         loadWords();
     }
@@ -99,6 +101,21 @@ public class HaldingWords {
         }
         System.out.println(possiblesWords.size());
         return trueWords;
+    }
+
+    public void loadListTrueWords(String RWord) throws ClassNotFoundException, SQLException {
+        String sql = listTrueWords(RWord);
+
+        try(Connection conn = conection.Connect();
+            Statement stat = conn.createStatement();
+            ResultSet rs = stat.executeQuery(sql)){
+
+            while (rs.next()){
+                trueWords.add(rs.getString("sin_acentos"));
+            }
+        }catch (SQLException e){
+            System.out.printf("ERROR CONSULTA" + e.getMessage());
+        }
     }
 
     public String listTrueWords(String palabra){
@@ -211,5 +228,11 @@ public class HaldingWords {
 
     public void setWords(ArrayList<String> words) {
         this.words = words;
+    }
+
+    public  ArrayList<String> getTrueWords() {return trueWords;}
+
+    public void setTrueWords(ArrayList<String> trueWords) {
+        this.trueWords = trueWords;
     }
 }
